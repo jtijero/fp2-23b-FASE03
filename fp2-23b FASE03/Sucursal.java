@@ -1,67 +1,61 @@
-
 import java.util.ArrayList;
 
 public class Sucursal {
-	String nombre;
-	String webPage;
-	String direccion;	
-	ArrayList<Editorial> editoriales = new ArrayList<Editorial>();	
-	public Sucursal(String name) {
-		this. = name;
+	private String id;
+	private String nombre;
+	private String direccion;
+	private ArrayList<Editorial> listaEditoriales = new ArrayList<>();
+
+
+	public Sucursal(String nombre, String id, String direccion) {
+		this.nombre = nombre;
+		this.id = id;
+		this.direccion = direccion;
 	}
-	public String getName() {
-		return name;
+	//nombre
+	public String getnombre() {
+		return nombre;
 	}
-	public void setName(String name) {
-		this.name = name;
+	public void setnombre(String nombre) {
+		this.nombre = nombre;
 	}
-	public String getWebPage() {
-		return webPage;
+	//id
+	public String id() {
+		return id;
 	}
-	public void setWebPage(String webPage) {
-		this.webPage = webPage;
+	public void setId(String di) {
+		this.id = di;
 	}
-	public boolean isStatus() {
-		return status;
+	//dirreccion
+	public String isDireccion() {
+		return this.direccion;
 	}
-	public void setStatus(boolean status) {
-		this.status = status;
-	}
-	
-	public boolean addArticle(Article article) {
-		if(articles.contains(article)) {
-			return false;
-		}else {
-			this.articles.add(article);
-			return true;
-		}
-	}	
-	
-	public void clearBooks() {
-		this.articles.clear();
-	}	
-	
-	public boolean searchBooks(String code) {
-		for(int i=0;i<articles.size();i++) {
-			if(articles.get(i).getCode().equals(code)) {
-				return true;
-			}
-		}
-		return false;
-	}
-	public ArrayList<Article> getArticles() {
-		return articles;
+	public void setDireccion(String direccion) {
+		this.direccion = direccion;
 	}
 	
-	public void printArticles() {
-		for(int i=0;i<articles.size();i++) {
-			System.out.println("Código : " + articles.get(i).getCode());
-			System.out.println("Título : " + articles.get(i).getTitle());
-			System.out.println("Páginas : " + articles.get(i).getPages());			
-			System.out.println("Editorial : " + this.getName());		
-		}
-		
-	}
+	public void agregarEditorial(ArrayList<Editorial> listaEditoriales, String nombreEditorial) {
+        Editorial nuevaEditorial = new Editorial(nombreEditorial);
+        listaEditoriales.add(nuevaEditorial);
+    }
 	
+	
+    public boolean existeEditorial(String nombre) {
+        for (Editorial editorial : listaEditoriales) {
+            if (editorial.getName().equals(nombre)) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+	public Editorial buscarEditorial(String nombre) {
+        for (Editorial editorial : listaEditoriales) {
+            if (editorial.getName().equals(nombre)) {
+                return editorial;
+            }
+        }
+        return null;
+	}
 	
 }
