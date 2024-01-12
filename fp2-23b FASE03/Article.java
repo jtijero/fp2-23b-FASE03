@@ -1,12 +1,15 @@
+import java.util.*;
 public class Article {
 	String code;
 	String title;
+	ArrayList <Autor> autores;
 	int pages;
 	byte type;
 	
 	public Article(String code, String title) {
 		this.code = code;
 		this.title = title;
+		this.autores = new ArrayList<Autor>();
 		this.type = 0;
 	}
 
@@ -15,11 +18,13 @@ public class Article {
 		this.title = title;
 		this.pages = pages;
 		this.type = 0;
+		this.autores = new ArrayList<Autor>();
 	}
 
 	public Article(String title) {
 		this.title = title;
 		this.type = 0;
+		this.autores = new ArrayList<Autor>();
 	}
 	
 	
@@ -49,6 +54,14 @@ public class Article {
 
 	public void setType(byte type) {
 		this.type = type;
+	}
+	
+	public ArrayList<Autor> getAutores(){
+		return autores;
+	}
+	
+	public void setAutores(String autor){
+		autores.add(autor);
 	}
 	
 	
